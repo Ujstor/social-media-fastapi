@@ -4,12 +4,11 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
 from sqlalchemy.orm import Session
-from . import models, schemas, utils
+from . import models
 from .database import engine, get_db
-from .routers import post, users
+from .routers import post, users, auth
 
 models.Base.metadata.create_all(bind=engine)
-
 
 app = FastAPI()
 
@@ -25,6 +24,7 @@ while True:
 
 app.include_router(post.router)
 app.include_router(users.router)
+app.include_router(auth.router)
 
 @app.get("/")
 def root():
