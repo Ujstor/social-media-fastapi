@@ -14,6 +14,7 @@ class PostCreate(PostBase):
 class Post(PostBase):
     id : int
     created_add : datetime
+    owner_id : int
 
     class Config():
         orm_mode = True
@@ -35,7 +36,7 @@ class UserLogin(BaseModel):
     password: str
 
 class Token(BaseModel):
-    token: str
+    access_token: str
     token_type: str
 
 class TokenData(BaseModel):
