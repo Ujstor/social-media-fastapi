@@ -13,8 +13,7 @@ router = APIRouter(
 def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
     #cursor.execute("""SELECT * FROM posts""")
     #posts = cursor.fetchall()
-    posts = db.query(models.Post).filter(
-        models.Post.owner_id == current_user.id).all()
+    posts = db.query(models.Post).all()
     return posts
 
 
@@ -37,9 +36,6 @@ def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends
     if not post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"Post with id {id} not found")
-    if post.owner_id != current_user.id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-                            detail="Not authorized to perform requested action")
     return post
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
