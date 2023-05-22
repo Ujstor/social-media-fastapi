@@ -1,7 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, validator
 from datetime import datetime
 from pydantic import EmailStr
 from typing import Optional
+
 
 class PostBase(BaseModel):
     title: str
@@ -43,3 +44,13 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id : Optional[int] = None
+
+class Vote(BaseModel):
+    post_id: int
+    dir: int
+
+    @validator('post_id')
+    def post_id_must_be_zero_or_one(cls, v):
+        if v not in (0, 1):
+            raise ValueError('Input 1 for upvote or 0 for downvote')
+        return v
