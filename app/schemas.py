@@ -25,6 +25,12 @@ class Post(PostBase):
     created_add : datetime
     owner_id : int
     owner : UserOut
+    class Config():
+        orm_mode = True
+
+class PostOut(BaseModel):
+    Post: Post
+    votes: int
 
     class Config():
         orm_mode = True
@@ -49,8 +55,8 @@ class Vote(BaseModel):
     post_id: int
     dir: int
 
-    @validator('post_id')
+    @validator('dir')
     def post_id_must_be_zero_or_one(cls, v):
-        if v not in (0, 1):
+        if v not in [0, 1]:
             raise ValueError('Input 1 for upvote or 0 for downvote')
         return v
