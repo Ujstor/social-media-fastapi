@@ -1,5 +1,7 @@
 # FastAPI Project
 
+![](https://i.imgur.com/jPqQa5E.png)
+
 ## Project Overview
 
 This comprehensive project on developing a RESTful API using FastAPI is structured around several key themes:
