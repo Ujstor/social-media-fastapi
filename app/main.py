@@ -6,7 +6,8 @@ from .config import Settings
 
 settings = Settings()
 
-models.Base.metadata.create_all(bind=engine)
+#models.Base.metadata.create_all(bind=engine)
+#using alembic instead
 
 app = FastAPI()
 
