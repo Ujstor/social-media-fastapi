@@ -1,0 +1,2 @@
+build:
+  - ./railway-build.sh
