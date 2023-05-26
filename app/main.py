@@ -12,7 +12,7 @@ settings = Settings()
 
 app = FastAPI()
 
-origins = ["https://www.google.com"] #or ["*"] for all origins
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
