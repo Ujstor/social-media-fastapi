@@ -2,7 +2,53 @@
 
 ![](https://i.imgur.com/jPqQa5E.png)
 
-## Project Overview
+# Testing
+You can test the API using docs at deployed version on Railway: https://fastapi-ujstor.up.railway.app/docs
+
+Another option is to use [Postman](https://www.postman.com/ujstor/workspace/fastapi-test/) collection; create fork and in environment variables set `URL` to `https://fastapi-ujstor.up.railway.app` , also you need JWT token variable, copy this code in Login user - Tests tab:
+```js
+pm.environment.set("JWT", pm.response.json().access_token);
+```
+
+![Variables](https://i.imgur.com/urKV3Gk.png)
+<br>
+<br>
+![JWT](https://i.imgur.com/3RBG6cR.png)
+<br>
+<br>
+### Create user
+![](https://i.imgur.com/iODzIXx.png)
+<br>
+<br>
+### Login
+![](https://i.imgur.com/9q9MSdZ.png)
+<br>
+<br>
+### Test endpoints
+![](https://i.imgur.com/IWlNzYM.png)
+<br>
+<br>
+# Local deployment
+Running the API locally is simple, just clone the repo, create virtual environment and install requirements. Create .env file with following variables:
+```
+DATABASE_HOSTNAME=
+DATABASE_PORT=
+DATABASE_NAME=
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+SECRET_KEY=
+ALGORITHM=
+ACCESS_TOKEN_EXPIRE_MINUTES=
+```
+Create database and run migrations with `alembic upgrade head`.
+<br>
+Then run `uvicorn app.main:app --reload` and you are good to go.
+<br>
+You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
+
+
+
+# Project Overview
 
 This comprehensive project on developing a RESTful API using FastAPI is structured around several key themes:
 
@@ -24,12 +70,6 @@ This comprehensive project on developing a RESTful API using FastAPI is structur
 
 9. **Database Migration with Alembic**: This section introduces the concept of database migration tools and shows how to set up and use Alembic for database schema revisions.
 
-10. **Pre-Deployment Checklist**: This part prepares the project for deployment by discussing concepts such as CORS and Git.
+10. **Testing**: This part emphasizes writing effective tests for the API, working with Pytest, handling database interactions in tests, and testing user authentication.
 
-11. **Deployment**: This section covers deployment strategies for Heroku and Ubuntu, including setting up environments, managing Postgres databases, dealing with environment variables, and troubleshooting common issues.
-
-12. **Docker**: Here, the project introduces Docker, explaining how to write a Dockerfile, set up Docker Compose, manage Postgres containers, and bind mounts.
-
-13. **Testing**: This part emphasizes writing effective tests for the API, working with Pytest, handling database interactions in tests, and testing user authentication.
-
-14. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions, setting up jobs, managing environment variables, and deploying to Heroku and Ubuntu.
+11. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions, setting up jobs, managing environment variables, and deploying to Heroku and Ubuntu.
