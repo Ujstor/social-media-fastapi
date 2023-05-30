@@ -15,9 +15,9 @@ def test_create_user(client):
     assert res.status_code == 201
 
 def test_login_user(test_user, client):
-    res = client.post("/login",
-                        data={"username": test_user["email"], 
-                            "password": test_user["password"]})
+    res = client.post("/login",data={
+        "username": test_user["email"],
+        "password": test_user["password"]})
     login_res = schemas.Token(**res.json())
     payload = jwt.decode(login_res.access_token, settings.secret_key, algorithms=[settings.algorithm])
     id = payload.get("user_id")
@@ -28,7 +28,7 @@ def test_login_user(test_user, client):
 
 @pytest.mark.parametrize("email, password, status_code", [
     ('wrongemail@gmail.com', 'password123', 403),
-    ('sanjeev@gmail.com', 'wrongpassword', 403),
+    ('random@gmail.com', 'wrongpassword', 403),
     ('wrongemail@gmail.com', 'wrongpassword', 403),
     (None, 'password123', 422),
     ('sanjeev@gmail.com', None, 422)
