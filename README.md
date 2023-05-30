@@ -45,7 +45,15 @@ Create database and run migrations with `alembic upgrade head`.
 Then run `uvicorn app.main:app --reload` and you are good to go.
 <br>
 You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
-
+<br>
+<br>
+# Pytest
+To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
+<br>
+<br>
+![](https://i.imgur.com/vsiTQZc.png)
+<br>
+<br>
 
 
 # Project Overview
