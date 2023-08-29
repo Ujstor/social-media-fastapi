@@ -47,6 +47,12 @@ Then run `uvicorn app.main:app --reload` and you are good to go.
 You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
 <br>
 <br>
+
+# Docker
+1. `docker build -t fastapi-app .`
+2. `docker run -p 8000:8000 fastapi-app`
+<br>
+<br>
 # Pytest
 To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
 <br>
@@ -80,4 +86,4 @@ This comprehensive project on developing a RESTful API using FastAPI is structur
 
 10. **Testing**: This part emphasizes writing effective tests for the API, working with Pytest, handling database interactions in tests, and testing user authentication.
 
-11. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions, setting up jobs, managing environment variables, and deploying to Heroku and Ubuntu.
+11. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions.
