@@ -3,9 +3,9 @@
 ![](https://i.imgur.com/jPqQa5E.png)
 
 # Testing
-You can test the API using docs at deployed version on Railway: https://fastapi-ujstor.up.railway.app/docs
+You can test the API using docs at deployed version: https://fastapi.astipan.com/docs or  https://fastapi.astipan.com/redoc
 
-Another option is to use [Postman](https://www.postman.com/ujstor/workspace/fastapi-test/) collection; create fork and in environment variables set `URL` to `https://fastapi-ujstor.up.railway.app` , also you need JWT token variable, copy this code in Login user - Tests tab:
+Another option is to use [Postman](https://www.postman.com/ujstor/workspace/fastapi-test/) collection or import colection in local Postman app (.json file in the repo); create fork and in environment variables set `URL` to `https://fastapi.astipan.com/` , also you need JWT token variable, copy this code in Login user - Tests tab:
 ```js
 pm.environment.set("JWT", pm.response.json().access_token);
 ```
