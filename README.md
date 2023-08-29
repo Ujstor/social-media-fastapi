@@ -3,9 +3,9 @@
 ![](https://i.imgur.com/jPqQa5E.png)
 
 # Testing
-You can test the API using docs at deployed version on Railway: https://fastapi-ujstor.up.railway.app/docs
+You can test the API using docs at deployed version: https://fastapi.astipan.com/docs or  https://fastapi.astipan.com/redoc
 
-Another option is to use [Postman](https://www.postman.com/ujstor/workspace/fastapi-test/) collection; create fork and in environment variables set `URL` to `https://fastapi-ujstor.up.railway.app` , also you need JWT token variable, copy this code in Login user - Tests tab:
+Another option is to use [Postman](https://www.postman.com/ujstor/workspace/fastapi-test/) collection or import colection in local Postman app (.json file in the repo); create fork and in environment variables set `URL` to `https://fastapi.astipan.com/` , also you need JWT token variable, copy this code in Login user - Tests tab:
 ```js
 pm.environment.set("JWT", pm.response.json().access_token);
 ```
@@ -47,6 +47,12 @@ Then run `uvicorn app.main:app --reload` and you are good to go.
 You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
 <br>
 <br>
+
+# Docker
+1. `docker build -t fastapi-app .`
+2. `docker run -p 8000:8000 fastapi-app`
+<br>
+<br>
 # Pytest
 To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
 <br>
@@ -80,4 +86,4 @@ This comprehensive project on developing a RESTful API using FastAPI is structur
 
 10. **Testing**: This part emphasizes writing effective tests for the API, working with Pytest, handling database interactions in tests, and testing user authentication.
 
-11. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions, setting up jobs, managing environment variables, and deploying to Heroku and Ubuntu.
+11. **Continuous Integration/Continuous Deployment (CI/CD) pipeline**: The final section of the project introduces CI/CD concepts, working with GitHub Actions.
