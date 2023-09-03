@@ -49,10 +49,10 @@ You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
 <br>
 
 # Docker
-1. `docker build -t fastapi-app .`
-2. `docker run -p 8000:8000 fastapi-app`
+run `docker compose up`
 <br>
 <br>
+
 # Pytest
 To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
 <br>
