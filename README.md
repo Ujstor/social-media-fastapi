@@ -49,8 +49,7 @@ You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
 <br>
 
 # Docker
-1. `docker build -t fastapi-app .`
-2. `docker run -p 8000:8000 fastapi-app`
+run `docker compose up`
 <br>
 <br>
 
