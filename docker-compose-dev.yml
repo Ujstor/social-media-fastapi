@@ -10,6 +10,7 @@ services:
     environment:
       - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
       - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_HOST_PORT=${DATABASE_HOST_PORT}
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USERNAME=${DATABASE_USERNAME}
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
@@ -20,13 +21,15 @@ services:
       - postgres
 
   postgres:
+    container_name: postgres
     image: postgres
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - POSTGRES_DB=${DATABASE_NAME},${DATABASE_NAME}_test
-      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_DB=${DATABASE_NAME}
+    ports:
+      - ${DATABASE_HOST_PORT}:${DATABASE_PORT}
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
 volumes:
-  postgres-db:
+  postgres-db: {}
