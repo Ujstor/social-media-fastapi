@@ -16,12 +16,6 @@ services:
       - SECRET_KEY=${SECRET_KEY}
       - ALGORITHM=${ALGORITHM}
       - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
-    command:
-      - /bin/bash
-      - -c
-      - |
-        alembic upgrade head
-        uvicorn app.main:app --host=0.0.0.0 --port=8010
     depends_on:
       - postgres
 
@@ -30,6 +24,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME},${DATABASE_NAME}_test
+      - POSTGRES_USER=${DATABASE_USERNAME}
     volumes:
       - postgres-db:/var/lib/postgresql/data
 

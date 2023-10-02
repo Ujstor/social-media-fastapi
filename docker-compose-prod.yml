@@ -2,7 +2,7 @@ version: '3'
 
 services:
   fastapi:
-    image: ujstor/fastqpi
+    image: ujstor/fastapi
     ports:
       - '8010:8010'
     environment:
@@ -22,6 +22,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}, ${DATABASE_NAME}_test
+      - POSTGRES_USER=${DATABASE_USERNAME}
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
