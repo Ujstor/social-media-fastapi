@@ -19,7 +19,7 @@ pipeline {
      stage('Create test db') {
       steps {
         script {
-          sh "docker run --name postgres-fastapi_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=fastapi, fastapi_test -p 5432:5432 -d postgres:latest" 
+          sh "docker run --name postgres-fastapi_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=fastapi_test -p 5432:5432 -d postgres:latest" 
 
         }
       }
