@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   fastapi:
@@ -8,7 +8,6 @@ services:
     environment:
       - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
       - DATABASE_PORT=${DATABASE_PORT}
-      - DATABASE_HOST_PORT=${DATABASE_HOST_PORT}
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USERNAME=${DATABASE_USERNAME}
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
@@ -25,7 +24,7 @@ services:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
     ports:
-      - ${DATABASE_HOST_PORT}:${DATABASE_PORT}
+      - 6543:5432
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
