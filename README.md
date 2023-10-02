@@ -49,9 +49,28 @@ You can test endpoints with POSTMAN or docs at http://localhost:8000/docs.
 <br>
 
 # Docker
-run `docker compose up`
-<br>
-<br>
+
+To build the Docker image from the code, run:
+
+```
+docker compose -f .\docker-compose-dev.yml up
+```
+
+If you want to pull the image from the Docker repository instead, use:
+
+```
+docker compose -f .\docker-compose-prod.yml up
+```
+
+Image is automatically built and deployed through the Jenkins pipeline after changes in GitHub, and it expects a .env file for loading variables.
+
+<br/>
+
+![](https://i.imgur.com/7wjnnaq.png)
+
+<br/>
+
+![](https://i.imgur.com/CqywEOx.png)
 
 # Pytest
 To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
