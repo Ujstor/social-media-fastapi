@@ -1,0 +1,7 @@
+env/
+.env
+.vscode/
+data.sql
+postpy2.py
+__pycache__
+.pytest_cache
