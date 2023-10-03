@@ -29,7 +29,7 @@ jobs:
       - name: install all dependencies
         run: pip install -r requirements.txt
       - name: create test db
-        run: sudo  docker run --name postgres-fastapi_test -e POSTGRES_USER=${{secrets.DATABASE_USERNAME}} -e POSTGRES_PASSWORD=${{secrets.DATABASE_PASSWORD}} -e POSTGRES_DB=${{secrets.DATABASE_NAME}}_test -p ${{secrets.DATABASE_PORT}}:${{secrets.DATABASE_PORT}} -d postgres:latest
+        run: sudo  docker run --name postgres-fastapi_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=fastapi_test -p 5432:5432 -d postgres:latest
       - name: test with pytest
         run: |
           pip install pytest
