@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git(url: 'https://github.com/Ujstor/social-media-fastapi/', branch: 'postgres')
+        git(url: 'https://github.com/Ujstor/social-media-fastapi/', branch: 'master')
       }
     }
 
