@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastapi:
-    image: ujstor/fastapi
+    image: ujstor/fastapi:1.0.3
     ports:
       - '8010:8010'
     environment:

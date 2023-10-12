@@ -66,11 +66,26 @@ Image is automatically built and deployed through the Jenkins pipeline after cha
 
 <br/>
 
-![](https://i.imgur.com/7wjnnaq.png)
+![](https://i.imgur.com/o7SnJvi.png)
 
-<br/>
+# Jenkins Pipeline
 
-![](https://i.imgur.com/CqywEOx.png)
+
+Pipeline is designed to automate the build, test and deployment of a FastAPI application stored in a GitHub repository. It performs a series of steps to build and deploy the application, as well as run tests and generate Docker image tags. 
+
+
+
+## Pipeline Execution Conditions
+
+- The pipeline stages related to Docker image generation, building, deployment, and cleanup only run when the branch being built is 'master.' This is controlled by the `when` expressions in the respective stages.
+
+## Post-build Actions
+
+- If the pipeline runs successfully, a message is printed to indicate the completion of the pipeline.
+
+This Jenkins pipeline streamlines the continuous integration and deployment process for a FastAPI application and offers flexibility in managing versioning and Docker image deployment. It can be customized further based on specific project requirements and integrations.
+
+
 
 # Pytest
 To run tests, you need manually create test database, just add `_test` to new database (fastapi;  fastapi_test). At each test run, the database is cleared and the data is reloaded from the fixtures. To run tests, use `pytest -v -s` command.
