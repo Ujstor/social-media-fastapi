@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastapi:
-    image: ujstor/fastapi:1.0.3
+    image: ujstor/fastapi:1.0.4
     ports:
       - '8010:8010'
     environment:
@@ -15,10 +15,10 @@ services:
       - ALGORITHM=${ALGORITHM}
       - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
     depends_on:
-      - postgres
+      - postgres-fastapi
 
-  postgres:
-    container_name: postgres
+  postgres-fastapi:
+    container_name: postgres-fastapi
     image: postgres
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
@@ -26,12 +26,7 @@ services:
     ports:
       - 6543:5432
     volumes:
-      - postgres-db:/var/lib/postgresql/data
+      - postgres-db-fastapi:/var/lib/postgresql/data
 
 volumes:
-  postgres-db:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /root/postgres/fastapi
+  postgres-db-fastapi:
